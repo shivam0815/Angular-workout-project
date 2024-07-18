@@ -1,0 +1,20 @@
+<!-- workout-list.component.html -->
+
+<div class="container">
+  <h2>Workout List</h2>
+  <div class="filters">
+    <input type="text" placeholder="Search by Name" [(ngModel)]="searchName" (ngModelChange)="filterWorkouts()">
+    <select [(ngModel)]="selectedType" (ngModelChange)="filterWorkouts()">
+      <option value="All">All Types</option>
+      <option value="Cardio">Cardio</option>
+      <option value="Strength">Strength</option>
+      <!-- Add more options as needed -->
+    </select>
+  </div>
+  <ul>
+    <li *ngFor="let workout of pagedWorkouts">
+      {{ workout.name }} - {{ workout.type }} - Duration: {{ workout.duration }}
+    </li>
+  </ul>
+  <app-pagination [itemsPerPage]="itemsPerPage" [totalItems]="filteredWorkouts.length" (pageChange)="onPageChange($event)"></app-pagination>
+</div>

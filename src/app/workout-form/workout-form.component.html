@@ -1,0 +1,25 @@
+<!-- workout-form.component.html -->
+<form [formGroup]="workoutForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">User Name</label>
+    <input id="name" formControlName="name" placeholder="User Name" />
+    <div *ngIf="workoutForm.get('name')?.invalid && workoutForm.get('name')?.touched">
+      Name is required
+    </div>
+  </div>
+  <div>
+    <label for="duration">Duration (minutes)</label>
+    <input id="duration" formControlName="duration" type="number" placeholder="Duration (minutes)" />
+    <div *ngIf="workoutForm.get('duration')?.invalid && workoutForm.get('duration')?.touched">
+      Duration is required and must be greater than 0
+    </div>
+  </div>
+  <div>
+    <label for="type">Type</label>
+    <input id="type" formControlName="type" placeholder="Type (Cardio, Strength, etc.)" />
+    <div *ngIf="workoutForm.get('type')?.invalid && workoutForm.get('type')?.touched">
+      Type is required
+    </div>
+  </div>
+  <button type="submit" [disabled]="workoutForm.invalid">Submit</button>
+</form>
