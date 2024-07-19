@@ -13,7 +13,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/workout-app",
+            "outputPath": "docs",
+          "baseHref": "/Angular-workout-project/",
             "index": "src/index.html",
             "allowedCommonJsDependencies": ["chart.js", "ng2-charts"],
             "main": "src/main.ts",
